@@ -1,11 +1,12 @@
 import { themes, Image } from 'mdx-deck'
-export const theme = themes.swiss;
 import Human from './components/Human';
 import Crumb from './components/Crumb';
-import buildSequence from './static/build.svg'
-import browserSequence from './static/browser.svg'
 
----
+export const theme = themes.swiss;
+const browserSequence = "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/assets/browser.svg"
+const buildSequence = "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/assets/build.svg"
+
+
 # Web Assembly for Dumb People
 
 A tool for running native code on the web.
@@ -18,7 +19,7 @@ A tool for running native code on the web.
 
 <Notes>
   - Very rough web assembly intro: a new thing, a tool for running native code in a browser
-  - The scope of this talk - DUMB PEOPLE
+  - The scope of this talk - DUMB PEOPLE. Meaning me, not you guys.
 </Notes>
 
 ---
@@ -26,15 +27,19 @@ A tool for running native code on the web.
 # Dumb People?
 
 
-<Human>This will be a presentation full of gross oversimplifications. The goal is to highlight practical (real world) applications of Web Assembly.</Human>
+<Human>This will be a presentation full of gross oversimplifications. The goal is to highlight practical (real world) applications of Web Assembly.<br/>
+When you see a Donald Trump, that means a key dumb person takeaway is being communicated.</Human>
 
 <Notes>
+
+  - When you see the dumb person, that's a key takeaway.
   - What (in my eyes) is web assembly
   - What is it good for
   - What is it **not** good for
   - Practical, not flashy use cases
   - Architecture and workflow
   - Demo pprmnt  
+
 </Notes>
 
 ---
@@ -55,17 +60,19 @@ A tool for running native code on the web.
 </Steps>
 
 <Notes>
+
   - How do browsers work? The runtime language of the browser is Javascript
-  - Native code means basically assembly
-  -  What we actually want to focus on is WASM as a compile target for C++, C, Rust, etc.
+  - Native code means basically assembly, binary formats that your operating system understands "natively"
+  - What we actually want to focus on is WASM as a compile target for C++, C, Rust, etc.
   - Low-level systems languages that utilize native features, memory management, blah blah. too complicated
+
 </Notes>
 
 ---
 
 <Crumb> 00. What the heck is a WASM?</Crumb>
 <Human>In other words, to me it is a <strong>tool</strong>. <br/>
-Iit's not a language, a runtime, nor an API. It's a tool that lets me run native code on the web.</Human>
+It's not a language, a runtime, nor an API. It's a tool that lets me run native code on the web.</Human>
 
 
 ---
@@ -86,11 +93,13 @@ Why would I want to run native code in a browser?
 </Steps>
 
 <Notes>
+
   - Performance -- it is faster than javascript, by a lot. I don't understand why exactly but it just is.
   - Use native code - you can use other people's C/C++/Rust code. Great, less code.
   - Security - compiled code is immutable and not observable at runtime, WebAssembly programs are protected from control flow hijacking attacks.
   - Low-level systems languages that utilize native features, memory management, blah blah. too complicated
   - Reminder: **completely client side in the browser**.  No server. Privacy. Etc.
+
 </Notes>
 
 ---
@@ -98,8 +107,18 @@ Why would I want to run native code in a browser?
 
 <Crumb> 01. What are the benefits of using WASM?</Crumb>
 <Human>
-  (TODO: link fibonacci demo)
+  Let's compare fibonacci sequence executing in WASM and JS
+  <div>
+    <a href="https://fib.johnny.sh/">Live demo</a>
+  </div>
+  <div>
+    <a href="https://fib.johnny.sh/">Source code</a>
+  </div>
 </Human>
+
+<Notes>
+  - Fibonacci sequence is an algorithm of exponential time complexity, which means the execution time doubles with each new data point.
+</Notes>
 
 ---
 
@@ -114,8 +133,10 @@ Why would I want to run native code in a browser?
 </Steps>
 
 <Notes>
+
   - For the most part, Javascript is "fast enough". We don't often run into serious runtime bottlenecks with Javascript. 
   - To figure this out what is WASM good for, we have to ask: what can we not do in a browser/javascript?
+  
 </Notes>
 
 ---
@@ -202,6 +223,7 @@ Why would I want to run native code in a browser?
   - [Cyph](https://cyph.app/) - Cryptography
   - [wasm-flate](https://github.com/drbh/wasm-flate) - File compression/decompression
   - Figma - Image manipulation X 1000000
+  - Normal web tech with WASM sprinkled on top as turbo-boosters
 
 </Steps>
 
@@ -210,6 +232,10 @@ Why would I want to run native code in a browser?
 <Crumb>04. Practical, not flashy case studies</Crumb>
 
 <Human>Small, sharp tools.</Human>
+
+<Notes>
+  At least for me, this is the real practical use case. Normal
+</Notes>
 
 ---
 
@@ -242,10 +268,15 @@ Why would I want to run native code in a browser?
 
 <Crumb>05. Architecture case study - pprmnt.cc</Crumb>
 
-<div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '400px', height: '100%', alignItems: 'center'}}>
-  <a href="https://pprmnt.cc/">Live demo</a>
-  <a href="https://github.com/johncalvinroberts/pprmnt">Source code</a>
-</div>
+<Human>
+  pprmnt.cc - an MP3 encoder in WASM
+  <div>
+    <a href="https://pprmnt.cc/">Live demo</a>
+  </div>
+  <div>
+    <a href="https://github.com/johncalvinroberts/pprmnt">Source code</a>
+  </div>  
+</Human>
 
 ---
 
@@ -286,12 +317,12 @@ Why would I want to run native code in a browser?
 
 <Steps>
 
- - Actually was pretty easy, dumb person can figure it out
  - Something I originally thought had to be done on backend could actually be done entirely in the browser
  - Only required about 90 lines of C code
  - Majority of the time was spent piping it all together -- workflow, build, architecture, non-blocking workers, etc.
  - Reading the `libmp3lame` library source was pretty interesting
-
+ - Emphasis: Normal web tech with WASM sprinkled on top as turbo-boosters.
+ 
 </Steps>
 
 ---

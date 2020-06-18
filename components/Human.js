@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
 
 const DUMBS = [
-  "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/static/trump.jpg",
-  "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/static/trump2.jpg",
-  "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/static/trump3.jpeg",
-  "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/static/trump4.jpeg",
-  "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/static/trump6.jpg",
-  "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/static/trump5.jpg",
+  "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/assets/trump.jpg",
+  "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/assets/trump2.jpg",
+  "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/assets/trump3.jpeg",
+  "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/assets/trump4.jpeg",
+  "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/assets/trump6.jpg",
+  "https://raw.githubusercontent.com/johncalvinroberts/wasm-talk/dev/assets/trump5.jpg",
 ];
 
 const Human = ({ children }) => {

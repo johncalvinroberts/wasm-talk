@@ -4,10 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "gatsby": "^2.23.4",
     "mdx-deck": "^4.1.1"
   },
   "scripts": {
     "start": "mdx-deck deck.mdx -p 5000",
-    "generate": "node ./generate-seq-diagram"
+    "build": "mdx-deck build deck.mdx"
+  },
+  "resolutions": {
+    "gatsby": "2.23.4"
   }
 }

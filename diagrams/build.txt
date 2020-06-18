@@ -1,0 +1,10 @@
+title pprmnt build
+
+note over src: source code
+note over Docker: Build docker image emscripten + lame
+src -> Docker: Move source C code into docker
+Docker -> Emscripten: Source C Code + lame
+note over Emscripten: Compile source C Code + lame to web assembly
+Emscripten -> Docker: out.wasm
+Docker -> dist: out.wasm
+src -> dist: other Javascript application code

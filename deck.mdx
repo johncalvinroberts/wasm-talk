@@ -1,10 +1,14 @@
-import { themes } from 'mdx-deck'
+import { themes, Image } from 'mdx-deck'
 export const theme = themes.swiss;
 import Human from './components/Human';
 import Crumb from './components/Crumb';
+import buildSequence from './static/build.svg'
+import browserSequence from './static/browser.svg'
 
 ---
 # Web Assembly for Dumb People
+
+A tool for running native code on the web.
 
 <Steps>
 
@@ -22,7 +26,7 @@ import Crumb from './components/Crumb';
 # Dumb People?
 
 
-<Human>This will be a presentation full of gross oversimplifications, overstupidifications, yet serves as a usable, digestable intro to Web Assembly.</Human>
+<Human>This will be a presentation full of gross oversimplifications. The goal is to highlight practical (real world) applications of Web Assembly.</Human>
 
 <Notes>
   - What (in my eyes) is web assembly
@@ -38,21 +42,274 @@ import Crumb from './components/Crumb';
 # 00. What the heck is a WASM?
 <Crumb> 00. What the heck is a WASM?</Crumb>
 
+<Steps>
+
+  - WASM = Web Assembly
+  - "A tool for running native code on the web" -- What does that mean?
+  - How do browsers work? 
+  - What is native code?
+  - Bundle native code and run it in the browser
+  - WASM runs alongside javascript, not instead of or within it.
+  - Really, it's a compile target.
+
+</Steps>
+
+<Notes>
+  - How do browsers work? The runtime language of the browser is Javascript
+  - Native code means basically assembly
+  -  What we actually want to focus on is WASM as a compile target for C++, C, Rust, etc.
+  - Low-level systems languages that utilize native features, memory management, blah blah. too complicated
+</Notes>
+
+---
+
+<Crumb> 00. What the heck is a WASM?</Crumb>
+<Human>In other words, to me it is a <strong>tool</strong>. <br/>
+Iit's not a language, a runtime, nor an API. It's a tool that lets me run native code on the web.</Human>
+
+
+---
+
+# 01. What are the benefits of using WASM?
+<Crumb> 01. What are the benefits of using WASM?</Crumb>
+
+Why would I want to run native code in a browser?
+
+<Steps>
+
+  - Performance
+  - Use native code
+  - Security - immutable, not observable at runtime.
+  - Combining the above 3 points with specific, sharp use cases.
+  - Reminder: **completely client side in the browser**.  
+
+</Steps>
+
+<Notes>
+  - Performance -- it is faster than javascript, by a lot. I don't understand why exactly but it just is.
+  - Use native code - you can use other people's C/C++/Rust code. Great, less code.
+  - Security - compiled code is immutable and not observable at runtime, WebAssembly programs are protected from control flow hijacking attacks.
+  - Low-level systems languages that utilize native features, memory management, blah blah. too complicated
+  - Reminder: **completely client side in the browser**.  No server. Privacy. Etc.
+</Notes>
+
 ---
 
 
-
-something1
-
----
-
-something2
+<Crumb> 01. What are the benefits of using WASM?</Crumb>
+<Human>
+  (TODO: link fibonacci demo)
+</Human>
 
 ---
 
+# 02. What is WASM good for?
+<Crumb> 02. What is WASM good for?</Crumb>
 
-something3
+<Steps>
+
+  - Javascript is "fast enough".
+  - We have to ask: what can we **not** do in a browser/javascript?
+
+</Steps>
+
+<Notes>
+  - For the most part, Javascript is "fast enough". We don't often run into serious runtime bottlenecks with Javascript. 
+  - To figure this out what is WASM good for, we have to ask: what can we not do in a browser/javascript?
+</Notes>
 
 ---
 
+# 02. What is WASM good for?
+<Crumb> 02. What is WASM good for?</Crumb>
+
+<Steps>
+
+  - Image & audio manipulation
+  - File encoding/decoding
+  - Cryptography
+  - Heavy, performance-critical computations. (like fibonacci)
+  - Memory-safe computation/security
+      - compiled code is immutable and not observable at runtime, WebAssembly programs are protected from control flow hijacking attacks. [link](https://webassembly.org/docs/security/)
+  - Reminder: **completely client side in the browser**.  
+
+</Steps>
+
+---
+
+<Crumb>02. What is WASM good for?</Crumb>
+<Human>
+  There's a sweet spot for WASM — memory-intensive, performance-critical tasks, that might need to do native-y stuff. <br/>
+  You'll know when you need it.
+</Human>
+
+---
+
+<Crumb>02. What is WASM good for?</Crumb>
+
+### For the not dumb people
+
+[official docs](https://webassembly.org/docs/use-cases/) - How WebAssembly can be used
+
+---
+
+<Crumb>03. What is WASM not good for?</Crumb>
+
+# 03. What is WASM not good for?
+
+<Steps>
+
+  - Typical browser stuff
+  - Rendering DOM nodes
+  - Web pages
+  - network i/o
+  - Making the buttons "pop"🌈🌈🌈
+
+</Steps>
+
+<Notes>
+
+  - Rendering dom nodes — the browser is already REALLLYYY good for that.
+  - Frameworks that do that with rust/wasm -- they're just calculating layouts and reconciling dom state inside of wasm, seems pointless.
+  - You CAN make user interfaces in it, you can make games with it, but that's definitely not for dumb people.
+  
+  
+</Notes>
+
+---
+
+<Crumb>03. What is WASM not good for?</Crumb>
+
+<Human>
+  Typical things you would do in a browser or Javascript are not being replaced by WASM.
+</Human>
+
+<Notes>
+
+  - It's not necessarily a silver bullet that is going to make your web app 20x faster
+
+</Notes>
+
+---
+
+<Crumb>04. Practical, not flashy case studies</Crumb>
+
+# 04. Practical, not flashy case studies
+
+<Steps>
+
+  - [Squoosh](https://squoosh.app/) - Image manipulation
+  - [Cyph](https://cyph.app/) - Cryptography
+  - [wasm-flate](https://github.com/drbh/wasm-flate) - File compression/decompression
+  - Figma - Image manipulation X 1000000
+
+</Steps>
+
+---
+
+<Crumb>04. Practical, not flashy case studies</Crumb>
+
+<Human>Small, sharp tools.</Human>
+
+---
+
+<img src="https://user-images.githubusercontent.com/11850362/80774995-00504200-8b91-11ea-8e4f-1673ca04c4c3.png" />
+
+---
+<Crumb>05. Architecture case study - pprmnt.cc</Crumb>
+
+# 05. Architecture case study - pprmnt.cc
+
+<Steps>
+
+  - My own small sharp tool 🥰
+  - Inspired largely by the aformentioned [Squoosh](https://squoosh.app/)
+  - An MP3 encoder in the browser, powered by Web Assembly.
+
+</Steps>
+
+<Notes>
+
+  - On topic of small sharp tools, and web assembly, I did find myself in a situation where "you know when you need it".
+  - Inspired by Squoosh in its architecture -- a small React app, utilizing classic codecs to encode files.
+  - Yes, there are tons of MP3 converters out there in the world, but they are sketchy.
+  - I am often dealing with lossless audio, and want to create lightweight lossy version without having to upload to sketchy third party servers.
+  
+</Notes>
+
+---
+
+
+<Crumb>05. Architecture case study - pprmnt.cc</Crumb>
+
+<div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '400px', height: '100%', alignItems: 'center'}}>
+  <a href="https://pprmnt.cc/">Live demo</a>
+  <a href="https://github.com/johncalvinroberts/pprmnt">Source code</a>
+</div>
+
+---
+
+<Crumb>05. Architecture case study - pprmnt.cc</Crumb>
+
+### Tooling
+
+<Steps>
+
+  - [`libmp3lame`](https://lame.sourceforge.io/) a classic C library for encoding audio to MP3
+  - [`emscripten`](https://emscripten.org/) is used to compile `libmp3lame` and C code to Web Assembly.
+  - `Docker` - All the emscripten web assembly compilation is done in docker for better portability.
+  - Frontend offloads the web assembly operations to [web workers](https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker) for better performance.
+
+</Steps>
+
+---
+
+<Crumb>05. Architecture case study - pprmnt.cc</Crumb>
+
+## Build Sequence
+
+<Image src={buildSequence} style={{maxWidth: '1200', maxHeight: '600px',height: '455px', backgroundSize: 'contain', backgroundPosition: 'left'}} />
+
+
+---
+
+<Crumb>05. Architecture case study - pprmnt.cc</Crumb>
+
+## Browser Sequence
+<Image src={browserSequence} style={{maxWidth: '1200px', maxHeight: '600px',height: '455px', backgroundSize: 'contain', backgroundPosition: 'left'}}/>
+
+---
+
+<Crumb>05. Architecture case study - pprmnt.cc</Crumb>
+
+## Key takeaways
+
+<Steps>
+
+ - Actually was pretty easy, dumb person can figure it out
+ - Something I originally thought had to be done on backend could actually be done entirely in the browser
+ - Only required about 90 lines of C code
+ - Majority of the time was spent piping it all together -- workflow, build, architecture, non-blocking workers, etc.
+ - Reading the `libmp3lame` library source was pretty interesting
+
+</Steps>
+
+---
+
+<Crumb>05. Architecture case study - pprmnt.cc</Crumb>
+
+<Human>Web Assembly -- it's pretty cool, you'll know when you need it.</Human>
+
+---
 ## The End
+
+---
+
+### Resources + further learning
+
+- [emscripten](https://emscripten.org/)
+- [Squoosh codebase](https://squoosh.app/)
+- [Blog Post - Emscripten + ffmpeg](https://itnext.io/build-ffmpeg-webassembly-version-ffmpeg-js-part-4-ffmpeg-js-v0-2-web-worker-and-libx264-d0596f1beb4e)
+- [Blog Post - Converting a C library to WASM](https://developers.google.com/web/updates/2018/03/emscripting-a-c-library)
+- [Talk - Advanced Web Assembly with Ben Smith](https://www.youtube.com/watch?v=FQJrcX4Ae8A)
+- [Made with Web Assembly](https://madewithwebassembly.com/)

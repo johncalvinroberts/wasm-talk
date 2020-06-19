@@ -112,12 +112,15 @@ Why would I want to run native code in a browser?
     <a href="https://fib.johnny.sh/">Live demo</a>
   </div>
   <div>
-    <a href="https://fib.johnny.sh/">Source code</a>
+    <a href="https://github.com/johncalvinroberts/fib-demo">Source code</a>
   </div>
 </Human>
 
 <Notes>
-  - Fibonacci sequence is an algorithm of exponential time complexity, which means the execution time doubles with each new data point.
+
+  - Fibonacci sequence, also known as the Golden Ratio, appears a lot in nature. 
+  - This is the recursive implementation, an algorithm of exponential time complexity, which means the execution time doubles with each new data point.
+
 </Notes>
 
 ---
@@ -149,7 +152,7 @@ Why would I want to run native code in a browser?
   - Image & audio manipulation
   - File encoding/decoding
   - Cryptography
-  - Heavy, performance-critical computations. (like fibonacci)
+  - Heavy, performance-critical computations (fibonacci example).
   - Memory-safe computation/security
       - compiled code is immutable and not observable at runtime, WebAssembly programs are protected from control flow hijacking attacks. [link](https://webassembly.org/docs/security/)
   - Reminder: **completely client side in the browser**.  
@@ -231,10 +234,17 @@ Why would I want to run native code in a browser?
 
 <Crumb>04. Practical, not flashy case studies</Crumb>
 
-<Human>Small, sharp tools.</Human>
+<Human>
+  Small, sharp tools. <br/>
+  Normal web tech with WASM sprinkled on top as turbo-boosters.
+</Human>
 
 <Notes>
-  At least for me, this is the real practical use case. Normal
+  
+  - At least for me, for dumb people, this is the real practical use case for web assembly.
+  - Most of the apps we're seeing using WASM in the wild are following this architecture -- normal web apps, using WASM for small sharp tools.
+  - Figma, at the end of the day, is a React app. There are more sprinkles than other apps, yes, but it is following this pattern.
+  - So...react app you say...it can't be that hard.
 </Notes>
 
 ---
@@ -333,6 +343,8 @@ Why would I want to run native code in a browser?
 
 ---
 ## The End
+
+<img src="https://media1.tenor.com/images/76ae1bb244e515bdc96a2c7b4a9e636f/tenor.gif?itemid=10557286"/>
 
 ---
 

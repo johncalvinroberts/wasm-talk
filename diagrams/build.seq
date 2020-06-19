@@ -1,5 +1,3 @@
-title pprmnt build
-
 note over src: source code
 note over Docker: Build docker image emscripten + lame
 src -> Docker: Move source C code into docker

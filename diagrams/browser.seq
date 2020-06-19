@@ -1,0 +1,10 @@
+User->Browser: Upload file
+Browser-> JS Main Thread: Decode file to PCM data
+JS Main Thread-> Web Worker: PCM data
+Web Worker-> Web Assembly: PCM data
+note over Web Assembly: Encode PCM data to MP3 binary
+Web Assembly -> Web Worker: MP3 binary
+Web Worker -> JS Main Thread: MP3 binary
+JS Main Thread -> Browser: create data URI
+User->Browser: Click download
+Browser->User: mp3 file

@@ -5,11 +5,13 @@
   "license": "MIT",
   "dependencies": {
     "gatsby": "^2.23.4",
-    "mdx-deck": "^4.1.1"
+    "mdx-deck": "^4.1.1",
+    "seq-cli": "^1.1.9"
   },
   "scripts": {
     "start": "mdx-deck deck.mdx -p 5000",
-    "build": "mdx-deck build deck.mdx"
+    "build": "mdx-deck build deck.mdx",
+    "generate-svg": "node ./generate-seq-diagram"
   },
   "resolutions": {
     "gatsby": "2.23.4"

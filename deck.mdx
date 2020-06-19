@@ -34,6 +34,7 @@ When you see a Donald Trump, that means a key dumb person takeaway is being comm
 
   - When you see the dumb person, that's a key takeaway.
   - What (in my eyes) is web assembly
+  - What are the benefits + a quick demo.
   - What is it good for
   - What is it **not** good for
   - Practical, not flashy use cases
@@ -85,8 +86,8 @@ Why would I want to run native code in a browser?
 <Steps>
 
   - Performance
-  - Use native code
-  - Security - immutable, not observable at runtime.
+  - Utilize native code
+  - Security
   - Combining the above 3 points with specific, sharp use cases.
   - Reminder: **completely client side in the browser**.  
 
@@ -95,7 +96,7 @@ Why would I want to run native code in a browser?
 <Notes>
 
   - Performance -- it is faster than javascript, by a lot. I don't understand why exactly but it just is.
-  - Use native code - you can use other people's C/C++/Rust code. Great, less code.
+  - Utilize native code - you can use other people's C/C++/Rust code. Great, less code.
   - Security - compiled code is immutable and not observable at runtime, WebAssembly programs are protected from control flow hijacking attacks.
   - Low-level systems languages that utilize native features, memory management, blah blah. too complicated
   - Reminder: **completely client side in the browser**.  No server. Privacy. Etc.
@@ -259,7 +260,7 @@ Why would I want to run native code in a browser?
 <Steps>
 
   - My own small sharp tool 🥰
-  - Inspired largely by the aformentioned [Squoosh](https://squoosh.app/)
+  - Inspired largely by the aforementioned [Squoosh](https://squoosh.app/)
   - An MP3 encoder in the browser, powered by Web Assembly.
 
 </Steps>
@@ -324,7 +325,7 @@ Why would I want to run native code in a browser?
 
 <Crumb>05. Architecture case study - pprmnt.cc</Crumb>
 
-## Key takeaways
+## My Experience
 
 <Steps>
 
@@ -340,7 +341,21 @@ Why would I want to run native code in a browser?
 
 <Crumb>05. Architecture case study - pprmnt.cc</Crumb>
 
-<Human>Web Assembly -- it's pretty cool, you'll know when you need it.</Human>
+## Key Takeaways for Dumb People
+
+  
+- It's a tool that lets you run native code on the web.
+- You'll know when you need it.
+- It's good for small, sharp tools.
+- Typical things you would do in a browser or Javascript are not being replaced by WASM.
+- Normal web tech with WASM sprinkled on top as turbo-boosters.
+
+
+---
+
+<Crumb>05. Architecture case study - pprmnt.cc</Crumb>
+
+<Human>Web Assembly -- it's pretty cool.</Human>
 
 ---
 ## The End
